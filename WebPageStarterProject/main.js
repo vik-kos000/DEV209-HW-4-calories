@@ -1,53 +1,52 @@
-//new food array
-foodArray = [];
+// Food array
+let foodArray = [];
 
+// Initializing the food array with default items
 document.addEventListener("DOMContentLoaded", function (event) {
-
-    //the 2 foods already there not inputed by user
     foodArray.push(new FoodItem("banana", 90));
-    foodArray.push(new FoodItem("orange", 60));
+    foodArray.push(new FoodItem("Orange", 60));
 
-    //puts the foodArray out into the console.log
-    for (let i = 0; i < foodArray.length; i++){
-        console.log(foodArray[i].show())
+    // Display the initial food items in the console
+    for (let i = 0; i < foodArray.length; i++) {
+        console.log(foodArray[i].show());
     }
 
-    //what happens when the button is clicked
+    // Event listener for adding calories
     document.getElementById("addCalories").addEventListener("click", function () {
+        // Add new food item
+        foodArray.push(newFood());
 
-        //enter the users input into the foodArray and outputs the input into the console.log
-        foodArray.push(newfood())
-        console.log(foodArray[foodArray.length - 1].show())
-        
-        //enter the total amount of calories into the total input
-        let totalCalories = document.getElementById("total");
-        totalCalories.value = addingCalories();
+        // Output the new food item in the console
+        console.log(foodArray[foodArray.length - 1].show());
 
-        //erases the input boxes after the user clicked the button
+        // Update the total calories display
+        let totalCalories = addingCalories();
+        document.getElementById("total").value = totalCalories;
+
+        // Clear input fields
         document.getElementById("foodName").value = "";
         document.getElementById("calories").value = "";
-
     });
 });
 
-//the object constructor with input parameters
+// FoodItem constructor function
 let FoodItem = function (pFoodName, pCalories){
     this.foodName = pFoodName;
     this.calories = parseInt(pCalories);
     this.show = function(){
-        return ("Food item: " + this.foodName + ", Calories: " + this.calories)
+        return "Food item: " + this.foodName + ", Calories: " + this.calories;
     }
 }
 
-//function for getting users input ready for foodArray
-let newfood = function () {
+// Function to create a new food item based on user input
+let newFood = function () {
     return new FoodItem(
         document.getElementById("foodName").value,
         document.getElementById("calories").value
     );
 }
 
-//function for finding the total amount of calories
+// Function to calculate total calories
 function addingCalories () {
     let total = 0;
     for (let i = 0; i < foodArray.length; i++){
@@ -55,4 +54,3 @@ function addingCalories () {
     }
     return total;
 }
-
