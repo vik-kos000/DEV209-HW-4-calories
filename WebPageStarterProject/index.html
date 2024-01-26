@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="site.css">
     <title>Calorie Tracker</title>
 </head>
 <body>
-    <div id="calorie-tracker">
-        <label for="food-name">Food Name:</label>
-        <input type="text" id="food-name" placeholder="Enter food name">
-        
-        <label for="calories">Calories:</label>
-        <input type="number" id="calories" placeholder="Enter calories">
 
-        <button onclick="addFood()">Add Food</button>
+    <h1>Track Calories</h1>
+    
+    <form name = "mainFrom" onsubmit="return false">
+        <fieldset id="calorie-tracker">
+            <legend>Food Information</legend>
+            <label for="foodName">Food Name:</label>
+            <input type="text" id="foodName" placeholder="Enter food name">
+            <br>
 
-        <div id="calories-display">Total Calories: 0</div>
+            <label for="calories">Number of calories:</label>
+            <input type="number" id="calories" placeholder="Enter calories">
+            <br>
+            
+            <button type="button" id="addCalories">Submit</button>        
+        </fieldset>
+        <br>
 
-        <div id="console-log"></div>
-    </div>
+        <fieldset id="totalShow">
+            <legend>Total Calories</legend>
+            <input type="number" id="total">
+        </fieldset>
+    </form>
 
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

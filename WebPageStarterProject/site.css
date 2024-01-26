@@ -1,5 +1,18 @@
  body {
     margin: 50px;
     font-family: Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+legend {
     font-size: 150%;
+    font-weight: bolder;
+}
+
+fieldset {
+    max-width: 50%;
+}
+
+#totalShow {
+    max-width: 25%;
 }
